@@ -42,7 +42,7 @@ async function updateGrid() {
 // Start the game
 function startGame() {
     if (!interval) {
-        interval = setInterval(updateGrid, 100);
+        interval = setInterval(updateGrid, 1);
     }
 }
 
