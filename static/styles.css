@@ -1,0 +1,124 @@
+/* General body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #2c2c2c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Grid styling */
+#grid {
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    gap: 2px;
+    width: 75vmin; /* Make the grid responsive */
+    height: 75vmin;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    transition: background-color 0.3s ease-in-out; /* Add transition for smooth color change */
+}
+
+.cell.alive {
+    background-color: green;
+}
+
+/* Button styling */
+button {
+    padding: 7px 14px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease, opacity 0.3s ease-in-out;
+}
+
+button.start {
+    background-color: #28a745;
+}
+
+button.stop {
+    background-color: #dc3545;
+}
+
+button.reset {
+    background-color: #6c757d;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px); /* Add a subtle lift on hover */
+}
+
+/* Heading styling */
+h1 {
+    font-size: 36px;
+    color: rgb(40, 100, 200);
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+/* Fade in and out animation for the heading */
+@keyframes fadeInOut {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    #grid {
+        width: 90vmin;
+        height: 90vmin;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    #grid {
+        width: 100vmin;
+        height: 100vmin;
+    }
+}
