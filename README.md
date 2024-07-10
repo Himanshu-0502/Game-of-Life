@@ -12,7 +12,7 @@ This project is a web-based implementation of Conway's Game of Life, built using
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/Game-of-Life.git
+    git clone https://github.com/Himanshu-0502/Game-of-Life.git
     cd Game-of-Life
     ```
 
