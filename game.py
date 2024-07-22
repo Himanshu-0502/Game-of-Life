@@ -10,7 +10,7 @@ def initialize_grid():
     for cell in alive_cells:
         row = cell // GRID_SIZE
         col = cell % GRID_SIZE
-        grid[row, col] = 1
+        grid[row][col] = 1
     return grid.tolist()
 
 def update_grid(grid):
@@ -33,7 +33,7 @@ def update_grid(grid):
     
     for i in range(GRID_SIZE):
         for j in range(GRID_SIZE):
-            if next_alive.get((i, j), 0) == 3 or next_alive.get((i, j), 0) == 2 and alive.get((i, j), False):
+            if next_alive.get((i, j), 0) == 3 or next_alive.get((i, j), 0) == 2 and (i, j) in alive:
                 grid[i][j] = 1
             else:
                 grid[i][j] = 0

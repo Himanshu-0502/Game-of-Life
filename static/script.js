@@ -46,7 +46,7 @@ async function updateGrid() {
 // Start the game
 function startGame() {
     if (interval) return;
-    interval = setInterval(updateGrid, 1);
+    interval = setInterval(updateGrid, 100);
 }
 
 // Stop the game
