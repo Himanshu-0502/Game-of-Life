@@ -68,7 +68,6 @@ button.reset {
 
 button:hover {
     opacity: 0.9;
-    transform: translateY(-2px); /* Add a subtle lift on hover */
 }
 
 /* Heading styling */
@@ -78,47 +77,4 @@ h1 {
     text-align: center;
     margin-top: 0px;
     margin-bottom: 15px;
-}
-
-/* Fade in and out animation for the heading */
-@keyframes fadeInOut {
-    from {
-        opacity: 0.5;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 28px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    #grid {
-        width: 90vmin;
-        height: 90vmin;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    button {
-        font-size: 12px;
-        padding: 4px 8px;
-    }
-
-    #grid {
-        width: 100vmin;
-        height: 100vmin;
-    }
 }
