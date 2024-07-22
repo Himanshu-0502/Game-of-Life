@@ -13,29 +13,29 @@ def initialize_grid():
         grid[row, col] = 1
     return grid.tolist()
 
-def alive_neighbors(grid, x, y, size):
-    """Count the number of alive neighbors around a given cell."""
-    directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
-    count = 0
-    for dx, dy in directions:
-        nx, ny = (x + dx) % size, (y + dy) % size
-        count += grid[nx][ny]
-    return count
-
 def update_grid(grid):
     """Update the grid based on Conway's Game of Life rules."""
-    next_grid = np.array(grid)
+    alive = {}
     for i in range(GRID_SIZE):
         for j in range(GRID_SIZE):
-            total = alive_neighbors(grid, i, j, GRID_SIZE)
             if grid[i][j] == 1:
-                if total == 2 or total == 3:
-                    next_grid[i][j] = 1
-                else:
-                    next_grid[i][j] = 0
+                alive[(i, j)] = True
+
+    next_alive = {}
+    for cell in alive:
+        x, y = cell
+        for dx in range(-1, 2):
+            for dy in range(-1, 2):
+                if dx == 0 and dy == 0:
+                    continue
+                nx, ny = (x + dx) % GRID_SIZE, (y + dy) % GRID_SIZE
+                next_alive[(nx, ny)] = next_alive.get((nx, ny), 0) + 1
+    
+    for i in range(GRID_SIZE):
+        for j in range(GRID_SIZE):
+            if next_alive.get((i, j), 0) == 3 or next_alive.get((i, j), 0) == 2 and alive.get((i, j), False):
+                grid[i][j] = 1
             else:
-                if total == 3:
-                    next_grid[i][j] = 1
-                else:
-                    next_grid[i][j] = 0
-    return next_grid.tolist()
+                grid[i][j] = 0
+
+    return grid
