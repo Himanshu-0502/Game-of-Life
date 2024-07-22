@@ -37,5 +37,4 @@ def update_grid(grid):
                 grid[i][j] = 1
             else:
                 grid[i][j] = 0
-
     return grid
