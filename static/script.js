@@ -28,6 +28,7 @@ function renderGrid() {
 
 // Update the grid
 async function updateGrid() {
+    renderGrid();
     const response = await fetch('/update', {
         method: 'POST',
         headers: {
@@ -36,13 +37,12 @@ async function updateGrid() {
         body: JSON.stringify({ grid: grid })
     });
     grid = await response.json();
-    renderGrid();
 }
 
 // Start the game
 function startGame() {
     if (!interval) {
-        interval = setInterval(updateGrid, 100);
+        interval = setInterval(updateGrid, 1);
     }
 }
 
