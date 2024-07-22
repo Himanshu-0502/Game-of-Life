@@ -1,6 +1,7 @@
 const gridElement = document.getElementById('grid');
 let grid = [];
 let interval;
+let isUpdate = false;
 
 // Fetch the grid from the server
 async function fetchGrid(url) {
@@ -28,7 +29,8 @@ function renderGrid() {
 
 // Update the grid
 async function updateGrid() {
-    renderGrid();
+    if (isUpdate) return;
+    isUpdate = true;
     const response = await fetch('/update', {
         method: 'POST',
         headers: {
@@ -37,13 +39,14 @@ async function updateGrid() {
         body: JSON.stringify({ grid: grid })
     });
     grid = await response.json();
+    renderGrid();
+    isUpdate = false;
 }
 
 // Start the game
 function startGame() {
-    if (!interval) {
-        interval = setInterval(updateGrid, 1);
-    }
+    if (interval) return;
+    interval = setInterval(updateGrid, 1);
 }
 
 // Stop the game
