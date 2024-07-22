@@ -1,6 +1,8 @@
-# Conway's Game of Life
+# Game of Life
 
-This project is a web-based implementation of Conway's Game of Life, built using Flask and Python for the Backend and HTML, CSS, and JavaScript for the Frontend.
+## Overview
+
+This project is a web-based implementation of Conway's Game of Life, built using Flask and Python for the backend and HTML, CSS, and JavaScript for the frontend.
 
 ## Features
 
@@ -10,14 +12,14 @@ This project is a web-based implementation of Conway's Game of Life, built using
 
 ## Installation
 
-1. **Clone the repository:**
-    ```bash
+1. Clone the repository:
+    ```sh
     git clone https://github.com/Himanshu-0502/Game-of-Life.git
     cd Game-of-Life
     ```
 
-2. **Install the required packages:**
-    ```bash
+2. Install the required packages:
+    ```sh
     pip install -r requirements.txt
     ```
 
